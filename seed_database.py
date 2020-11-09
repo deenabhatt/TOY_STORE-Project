@@ -9,33 +9,36 @@ import crud
 import model
 import server
 
-os.system('dropdb users')
-os.system('createdb users')
+os.system('dropdb toyshop')
+os.system('createdb toyshop')
 
-os.system('dropdb categories')
-os.system('createdb categories')
-
-os.system('dropdb toys')
-os.system('createdb toys')
-
-os.system('dropdb features')
-os.system('createdb features')
-
-os.system('dropdb toys_features')
-os.system('createdb toys_features')
-
-os.system('dropdb stores')
-os.system('createdb stores')
-
-os.system('dropdb address')
-os.system('createdb address')
-
-db.create_all()
+# db.create_all()
 
 model.connect_to_db(server.app)
 model.db.create_all()
 
-Load toy_store data from JSON file
+
+
+# a = User(toy_id = null, user_fname = "aaa", user_lname = "xyz",user_email = 'aaa_xyz@test.com', address_id = null)
+# b = User(toy_id = null, user_fname = "bbb", user_lname = "xyz",user_email = 'bbb_xyz@test.com', address_id = null)
+# c = User(toy_id = null, user_fname = "ccc", user_lname = "pqr",user_email = 'ccc_pqr@test.com', address_id = null)
+
+
+# d = Category(category_name = "Soft Toy", category_description = 'All soft toys such as teddy bears')
+# e = Category(category_name = "Board games", category_description = 'All board games such as Chess')
+
+
+# f = Toy(category_id = null, user_id = null, toy_name = "Teddy Bear", toy_description = Friends forever…stick together! 
+#         Not only is Rainbow Friends Bear colorful as can be, but it has special paw pads so it can hold the paws of other Rainbow Friends animals.
+#         If your favorite color is rainbow, then you’ll love making your own rainbow teddy bear and personalizing it with fun outfits, sounds, scents and accessories!
+#         ,toy_manufacture = "buit-a-bear",toy_age = "1year to 5years")
+# g = TOy(category_id = null, user_id = null, toy_name = "")
+
+# db.session.add(a,b)
+# db.session.commit()
+    
+
+# Load toy_store data from JSON file
 with open('data/toy.json') as f:
     toy_data = json.loads(f.read())
 

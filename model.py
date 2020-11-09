@@ -17,11 +17,15 @@ class User(db.Model):
     user_fname = db.Column(db.String)
     user_lname = db.Column(db.String)
     user_email = db.Column(db.String, unique=True)
-    address_id = db.Column(db.Integer,db.ForeignKey('users.address_id'))
+    # address_id = db.Column(db.Integer,db.ForeignKey('users.address_id'))
     
 
+    toy = db.relationship('Toy', backref='users')
+    user = db.relationship('User', backref='users')
+
+
     def __repr__(self):
-        return f'<user user_id={self.user_id} users={self.user_email}>'
+        return f'<User user_id={self.user_id}user_fname={self.user_fname} user_lname={self.user_lname} users_email={self.user_email}>'
 
 
 
@@ -33,9 +37,10 @@ class Category(db.Model):
     category_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     category_name = db.Column(db.String)
     category_description = db.Column(db.String)
-    score = db.Column(db.Integer)
+   
     
-
+    def __repr__(self):
+        return f'<Category category_id={self.category_id} category_name={self.category_name}category_description={self.category_description} score={self.score} >'
 
 class Toy(db.Model):
 
@@ -43,20 +48,22 @@ class Toy(db.Model):
 
     __tablename__= 'toys'
 
-    Toy_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    toy_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     category_id = db.Column(db.Integer,db.ForeignKey('categories.category_id'))
     user_id = db.Column(db.Integer,db.ForeignKey('users.user_id'))
-    Toy_name = db.Column(db.String)
+    toy_name = db.Column(db.String)
     toy_description = db.Column(db.String)
     toy_manufacture = db.Column(db.String)
     toy_age = db.Column(db.Integer)
 
-    # ratings = a list of Rating objects
-
-    # def __repr__(self):
-    #     return f'<Toy Toy_id={self.Toy_id} title={self.toy}>'
+    Category = db.relationship('Category', backref='toys')
+    user = db.relationship('User', backref='toys')
 
 
+    def __repr__(self):
+        return f'<Toy toy_id={self.toy_id} toy_name={self.toy_name} toy_description = {self.toy_description}toy_manufacture = {self.toy_manufacture} toy_age = {self.toy_age}>'
+
+    
 class Feature(db.Model):
     """feature."""
 
@@ -69,8 +76,8 @@ class Feature(db.Model):
     color = db.Column(db.String)
     theame = db.Column(db.String)
     
-    # def __repr__(self):
-    #     return f'<Toy Toy_id={self.Toy_id} title={self.toy}>'
+    def __repr__(self):
+        return f'<Feature feature_id={self.feature_id}weight={self.weight}height = {self.height} depth = {self.depth} color={self.color} theame = {self.theame}>'
 
 
 
@@ -79,14 +86,16 @@ class Toy_Feature(db.Model):
 
     __tablename__ = 'toys_Features'
 
-    price_feature_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    Toy_id = db.Column(db.ForeignKey('toys.toy_id'))
+    toy_feature_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    toy_id = db.Column(db.ForeignKey('toys.toy_id'))
     feature_id = db.Column(db.ForeignKey('features.feature_id'))
     store_id = db.Column(db.ForeignKey('stores.store_id'))
    
-    
-    # def __repr__(self):
-    #     return f'<Toy Toy_id={self.Toy_id} title={self.toy}>'
+    movie = db.relationship('Toy', backref='toy_features')
+    user = db.relationship('Feature', backref='toy_feature')
+
+    def __repr__(self):
+        return f'<Toy_feature Toy_id={self.toy_id} toy_feature_id={self.toy_feature_id}>'
 
 
 class Store(db.Model):
@@ -100,8 +109,8 @@ class Store(db.Model):
     web_only_indicator = db.Column(db.String)
     address_id = db.Column(db.String)
     
-     # def __repr__(self):
-     #     return f'<Toy Toy_id={self.Toy_id} title={self.toy}>'
+     def __repr__(self):
+         return f'<Store store_id={self.store_id} store_name={self.store_name} store_website{self.store_website} web_only_indicator{self.web_only_indicator} address_id{self.address_id},>'
 
 class Price(db.Model):
     """price."""
@@ -116,9 +125,12 @@ class Price(db.Model):
     price_end_date= db.Column(db.Integer) 
     
     
+    toy = db.relationship('Toy', backref='prices')
+    store = db.relationship('Store', backref='prices')
 
-    # def __repr__(self):
-    #     return f'<user user_id={self.user_id} users={self.user_email}>'
+    def __repr__(self):
+        return f'<price price_id={self.price_id} price_dollars={self.price_dollars}price_effective_date ={self.price_effective_date}price_end_date={self.price_end_date}>'
+
 
 class Address(db.Model):
     """address."""
@@ -127,6 +139,7 @@ class Address(db.Model):
 
     address_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     store_id = db.Column(db.Integer, db.ForeignKey('stores.store_id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('useres.user_id')))
     address_line1 = db.Column(db.String)
     address_line2 = db.Column(db.String)
     city = db.Column(db.String)
@@ -134,14 +147,14 @@ class Address(db.Model):
     zip_code = db.Column(db.Integer)
 
 
-    # movie = db.relationship('Movie', backref='ratings')
-    # user = db.relationship('User', backref='ratings')
+    store = db.relationship('Store', backref='addresses')
+    user = db.relationship('User', backref='addresses')
 
-#     def __repr__(self):
-#         return f'<Rating rating_id={self.rating_id} score={self.score}>'
+    def __repr__(self):
+        return f'<Address address_id={self.address_id} address_line1= {self.address_line1} address_line2= {self.address_line2}city= {self.city} state=zip_code={self.zip_code}>'
 
 
-def connect_to_db(flask_app, db_uri='postgresql:///users', echo=True):
+def connect_to_db(flask_app, db_uri='postgresql:///toyshop', echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -160,6 +173,10 @@ if __name__ == '__main__':
 #     # query it executes.
 
     connect_to_db(app)
+
+
+
+
 
 
 
@@ -197,14 +214,10 @@ connect_to_db(app)
 
 
 #     db.create_all()
-a = Category(category_name = "Soft Toy", category_description = 'All soft toys such as teddy bears')
-b = Category(category_name = "Board games", category_description = 'All board games such as Chess')
-# c = Toys(category_id = 1, )
+
 #   d = User(username="Cheese", email="eeemail", password="pppassword")
 #     f = Following(subscriber=s, creator=c)
 
-db.session.add(a,b)
-db.session.commit()
-    
+
     
     
