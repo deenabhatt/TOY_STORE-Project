@@ -1,14 +1,15 @@
 """CRUD operations."""
 
-from model import db, User, Category, Toy, Feature, Toy_Feature, Store, Price, Address, connect_to_db
+from model import db, User, Category, Toy, Feature, Toy_Feature, Store, Price, Address, User_Toy, connect_to_db
 
 
-def create_user(fname, lname,email):
+def create_user(user_fname, user_lname, user_email, user_password):
     """Create and return a new user."""
 
-    user = User(fname=user_fname,
-                lname=user_lname,
-                email=user_email,
+    user = User(user_fname=user_fname,
+                user_lname=user_lname,
+                user_email=user_email,
+                user_password=user_password
                 )
 
     db.session.add(user)
@@ -16,12 +17,19 @@ def create_user(fname, lname,email):
 
     return user
 
+def  authenticate_user(email,password):
+    if email == (User.query.filter_by(user_email = email).all()):
+        if password == (User.query.filter_by(user_password=password).all()):
+            return True 
+        else:
+            return False
 
-def create_category(name, description):
+
+def create_category(category_name, category_description):
     """Create and return a new category."""
 
-    category = Category(name = category_name,
-                        description = category_description,
+    category = Category(category_name = category_name,
+                        category_description = category_description,
                         )
 
     db.session.add(category)
@@ -30,13 +38,16 @@ def create_category(name, description):
     return category
 
 
-def create_toy(name,description, manufacture,age):
+   
+def create_toy(category,user, toy_name,toy_description, toy_manufacture, toy_age_range):
     """Create and return a new toy."""
 
-    toy = Toy(name=toy_name,
-            description= toy_description,
-            manufacture=toy_manufacture,
-            age= toy_age
+    toy = Toy(category= category,
+            user= user,
+            toy_name= toy_name,
+            toy_description= toy_description,
+            toy_manufacture=toy_manufacture,
+            toy_age_range= toy_age_range
             )
 
     db.session.add(toy)
@@ -48,122 +59,97 @@ def create_toy(name,description, manufacture,age):
 def create_feature(weight,height,depth,color,theme):
     """Create and return a feature."""
 
-   feature = Feature(weight=weight,
-             height=height,
-             depth = depth,
-             color=color,
-             theme= theame)
-                                     
-    db.session.add(Feature)
+    feature = Feature (weight = weight,
+                    height = height,
+                    depth = depth,
+                    color = color,
+                    theme = theme)
+
+    db.session.add(feature)
     db.session.commit()
 
-    return Feature
+    return feature
 
 
-def create_toy_feature():
+def create_toy_feature(toy,feature):
     """Create and return a toy_feature."""
 
-    toy_feature = Toy_Feature()
+    toy_feature = Toy_Feature(toy=toy,
+                            feature=feature,
+                            )
 
-    db.session.add(Toy_Feature) 
+    db.session.add(toy_feature) 
     db.session.commit()
 
-    return Toy_Feature
+    return toy_feature
 
 
-def create_store(name, website,web_only_indicator,address):
+def create_store(store_name, address, store_website, web_only_indicator):
     """Create and return a store."""
 
-    store = Store(name=name,
-                  website = store_website,
-                  web_only_indicator = store_web_only_indicator,
-                  address = store_address
-                  )
+    store = Store(store_name=store_name,
+                address = address,
+                store_website = store_website,
+                web_only_indicator = web_only_indicator
+                )
+    
 
-    db.session.add(Store)
+    db.session.add(store)
     db.session.commit()
 
-    return Store
+    return store
 
 
-def create_price(dollars, effective_date, end_date):
+def create_price(toy, store, price_dollars, price_effective_date, price_end_date):
     """Create and return a price."""
 
-    price = Price(dollars = price_dollars,
-                   effective_date= price_effective_date,
-                   end_date = price_effective_date))
+    price = Price(toy=toy,
+                store=store,
+                price_dollars = price_dollars,
+                price_effective_date= price_effective_date,
+                price_end_date = price_end_date)
 
     db.session.add(price)
     db.session.commit()
 
-    return Price
+    return price
 
 
-    def create_address(line1, line2, city,state, zip_code):
+def create_address( address_line1, address_line2, city,state, zip_code):
     """Create and return a address."""
 
-    address = Address(line1 = address_line1,
-                       line2 = address_line2,
-                       city = city,
-                       state = state,
-                       zip_code = zip_code
-                       )
+    address = Address(address_line1 = address_line1,
+                    address_line2 = address_line2,
+                    city = city,
+                    state = state,
+                    zip_code = zip_code
+                    )
 
-    db.session.add(Address)
+    db.session.add(address)
     db.session.commit()
 
     return address
 
 
-# def get_users():
-#     """Return all users."""
+def create_user_toy(toy, user):
+    """Create and return a address."""
 
-#     return User.query.all()
-
-
-# def get_user_by_id(user_id):
-#     """Return a user by primary key."""
-
-#     return User.query.get(user_id)
+    user_toy = User_Toy(toy_id=toy, user_id=user)
 
 
-# def create_movie(title, overview, release_date, poster_path):
-#     """Create and return a new movie."""
+    db.session.add(user_toy)
+    db.session.commit()
 
-#     movie = Movie(title=title,
-#                   overview=overview,
-#                   release_date=release_date,
-#                   poster_path=poster_path)
-
-#     db.session.add(movie)
-#     db.session.commit()
-
-#     return movie
+    return user_toy
 
 
-# def get_movies():
-#     """Return all movies."""
+def get_users():
+    """Return all users."""
 
-#     return Movie.query.all()
-
-
-# def get_movie_by_id(movie_id):
-#     """Return a movie by primary key."""
-
-#     return Movie.query.get(movie_id)
-
-
-# def create_rating(user, movie, score):
-#     """Create and return a new rating."""
-
-#     rating = Rating(user=user, movie=movie, score=score)
-
-#     db.session.add(rating)
-#     db.session.commit()
-
-#     return rating
-
+    return User.query.all()
 
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
+    
+

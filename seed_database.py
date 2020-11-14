@@ -17,57 +17,54 @@ os.system('createdb toyshop')
 model.connect_to_db(server.app)
 model.db.create_all()
 
+model.Toy_Feature.query.delete()
+model.Toy.query.delete()
+model.User.query.delete()
+model.Category.query.delete()
+model.Feature.query.delete()
+model.Store.query.delete()
+model.Address.query.delete()
 
 
-# a = User(toy_id = null, user_fname = "aaa", user_lname = "xyz",user_email = 'aaa_xyz@test.com', address_id = null)
-# b = User(toy_id = null, user_fname = "bbb", user_lname = "xyz",user_email = 'bbb_xyz@test.com', address_id = null)
-# c = User(toy_id = null, user_fname = "ccc", user_lname = "pqr",user_email = 'ccc_pqr@test.com', address_id = null)
+A = crud.create_category("Outdoor game", "kids toy")
+B = crud.create_category("indoor toy", "kids toy")
+C = crud.create_category("soft toy","everyone loves it")
+
+u = crud.create_user("deena", "bhatt", "123@test.com","test")
+I = crud.create_user("Jiya", "Dave", "Jiya@test.com","test")
+L = crud.create_user("Aanya", "Pandya", "aanya@test.com","test")
+N = crud.create_user("Miraya", "Pandya", "Miraya@test.com","test")
+O = crud.create_user("Angiras", "Pandya", "Angira@test.com","test")
+V = crud.create_user("Rohan", "Bhatt", "Rohan@test.com","test")
 
 
-# d = Category(category_name = "Soft Toy", category_description = 'All soft toys such as teddy bears')
-# e = Category(category_name = "Board games", category_description = 'All board games such as Chess')
+x = crud.create_toy( A, I, "bear", "kids toy", "disney", 5 )
+y = crud.create_toy( B, u, "bear", "kids toy", "disney", 5 )
+
+z = crud.create_feature(2.5,4.0,1.8,"blue","Disney")
+k = crud.create_feature(1.2,5.6,3.4,"yellow","build_a_bear")
 
 
-# f = Toy(category_id = null, user_id = null, toy_name = "Teddy Bear", toy_description = Friends forever…stick together! 
-#         Not only is Rainbow Friends Bear colorful as can be, but it has special paw pads so it can hold the paws of other Rainbow Friends animals.
-#         If your favorite color is rainbow, then you’ll love making your own rainbow teddy bear and personalizing it with fun outfits, sounds, scents and accessories!
-#         ,toy_manufacture = "buit-a-bear",toy_age = "1year to 5years")
-# g = TOy(category_id = null, user_id = null, toy_name = "")
-
-# db.session.add(a,b)
-# db.session.commit()
-    
-
-# Load toy_store data from JSON file
-with open('data/toy.json') as f:
-    toy_data = json.loads(f.read())
-
-# Create toy, store them in list so we can use them
-# to create fake toy data
+P = crud.create_address("1001 64th ave N","pioni","plymouth","MN",55311)
+Q = crud.create_address("5001 Jewel lane", "Polaris","Maple Group","MN", 55305)
 
 
-# movies_in_db = []
-# for movie in movie_data:
-#     title, overview, poster_path = (movie['title'],
-#                                     movie['overview'],
-#                                     movie['poster_path'])
-#     release_date = datetime.strptime(movie['release_date'], '%Y-%m-%d')
+H = crud.create_store("Target",P,"Target.com" ,"False")
+J = crud.create_store("Amazon", None ,"amazon.com","True")
 
-#     db_movie = crud.create_movie(title,
-#                                  overview,
-#                                  release_date,
-#                                  poster_path)
-#     movies_in_db.append(db_movie)
 
-# # Create 10 users; each user will make 10 ratings
+M = crud.create_toy_feature(x,z)
+N = crud.create_toy_feature(x,k)
 
-#     email = f'user{n}@test.com'  # Voila! A unique email!
-#     password = 'test'
 
-#     user = crud.create_user(email, password)
+D = crud.create_price(x, H, 5, 1112020, 11102020)
+E = crud.create_price(x, J, 3, 1122020, 12122020)
 
-#     for _ in range(10):
-#         random_movie = choice(movies_in_db)
-#         score = randint(1, 5)
 
-#         crud.create_rating(user, random_movie, score)
+# S = crud.create_user_toy(x,u)
+# T = crud.create_user_toy(y,I)
+
+
+
+
+
