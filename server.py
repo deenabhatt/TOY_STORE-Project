@@ -27,16 +27,34 @@ app.jinja_env.undefined = StrictUndefined
 def home():
     return render_template('homepage.html')
 
+@app.route('/', methods=["POST"])
+def authenticate_user():
+    print('*'*20)
+    print('\n')
+    print(request.form.get('email')) # request.form.get will grab from the form, matching to the name attribute in the html
+    print(request.form.get('password'))
+    print('\n')
+    print('*'*20)
+    user_email = request.form.get('email')
+    user_password = request.form.get('password')
+    auth_status = crud.authenticate_user(user_email, user_password)
+    if auth_status == True:
+        return redirect('/add_a_toy') 
+    else:
+        return redirect('/')
+    # return render_template('homepage.html')
 
-@app.route('/add_a_toy', methods=["GET"])
+
+@app.route('/add_a_toy')
 def add_a_toy():
     ''' On cick of login button, 'add a toy' page should display.
     Get email, password from homepage and pass in the Crud funtion below.'''
-    # if crud.authenticate_user() = True:
+    # if crud.authenticate_user() == True:
     #     return render_template('add_a_toy.html')
     # else:
-        # return alert ("Invalid Password")
-    return "you must return a string"
+    #     return alert ("Invalid Password")
+    # return "you must return a string"
+    return render_template('add_a_toy.html')
 
   
 @app.route('/sign_up')
@@ -59,30 +77,29 @@ def sign_up_new_user():
     # return render_template('homepage.html')
     return redirect('/')
 
-@app.route('/features.html')
+
+
+
+@app.route('/features')
 def Features():
     return render_template('Features.html')
 
 
+@app.route('/features', methods=["POST"])
+def add_a_feature():
+    print('*'*20)
+    print('\n')
+    print(request.form.get('first_name')) # request.form.get will grab from the form, matching to the name attribute in the html
+    print('\n')
+    print('*'*20)
+    user_fname = request.form.get('first_name')
+    user_lname = request.form.get('last_name')
+    user_email = request.form.get('email')
+    user_password = request.form.get('psw')
+    crud.create_user(user_fname =user_fname,user_lname = user_lname,user_email= user_email,user_password=user_password)
+    # return render_template('homepage.html')
+    return redirect('/')
 
-@app.route("/login")
-def show_login():
-    """Show login form."""
-
-    return render_template("login.html")
-
-
-@app.route("/login", methods=["POST"])
-def process_login():
-    """Log user into site.
-
-    Find the user's login credentials located in the 'request.form'
-    dictionary, look up the user, and store them in the session.
-    """
-
-@app.route("/name")
-def user(name):
-    return f"Hello{name}!"
 
 
 

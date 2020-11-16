@@ -112,7 +112,7 @@ class Store(db.Model):
     address = db.relationship('Address', backref='stores')
         
     def __repr__(self):
-            return f'<Store store_id={self.store_id} store_name={self.store_name} store_website{self.store_website} web_only_indicator{self.web_only_indicator} address_id{self.address_id}>'
+            return f'<Store store_id={self.store_id} store_name={self.store_name} store_website={self.store_website} web_only_indicator={self.web_only_indicator}>'
 
 class Price(db.Model):
     """price."""
@@ -125,7 +125,6 @@ class Price(db.Model):
     price_dollars = db.Column(db.Integer)
     price_effective_date = db.Column(db.Integer)
     price_end_date= db.Column(db.Integer) 
-    
     
     toy = db.relationship('Toy', backref='prices')
     store = db.relationship('Store', backref='prices')

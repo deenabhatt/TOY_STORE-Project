@@ -17,6 +17,7 @@ os.system('createdb toyshop')
 model.connect_to_db(server.app)
 model.db.create_all()
 
+model.Price.query.delete()
 model.Toy_Feature.query.delete()
 model.Toy.query.delete()
 model.User.query.delete()
@@ -56,10 +57,11 @@ J = crud.create_store("Amazon", None ,"amazon.com","True")
 M = crud.create_toy_feature(x,z)
 N = crud.create_toy_feature(x,k)
 
-
 D = crud.create_price(x, H, 5, 1112020, 11102020)
 E = crud.create_price(x, J, 3, 1122020, 12122020)
 
+t = crud.authenticate_user('Jiya@test.com','tst')
+print(t)
 
 # S = crud.create_user_toy(x,u)
 # T = crud.create_user_toy(y,I)

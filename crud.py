@@ -17,12 +17,17 @@ def create_user(user_fname, user_lname, user_email, user_password):
 
     return user
 
-def  authenticate_user(email,password):
-    if email == (User.query.filter_by(user_email = email).all()):
-        if password == (User.query.filter_by(user_password=password).all()):
-            return True 
-        else:
-            return False
+def authenticate_user(user_email,user_password):
+    A = User.query.filter_by(user_email = user_email, user_password=user_password).first()
+    print("a=", A)
+    print("user_email=",user_email)
+    print("user_password=",user_password)
+    if A == None:
+        return False
+    elif A.user_password == user_password:
+        return True
+    else:
+        return False
 
 
 def create_category(category_name, category_description):
