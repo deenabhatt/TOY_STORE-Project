@@ -47,14 +47,27 @@ def authenticate_user():
 
 @app.route('/add_a_toy')
 def add_a_toy():
-    ''' On cick of login button, 'add a toy' page should display.
-    Get email, password from homepage and pass in the Crud funtion below.'''
-    # if crud.authenticate_user() == True:
-    #     return render_template('add_a_toy.html')
-    # else:
-    #     return alert ("Invalid Password")
-    # return "you must return a string"
     return render_template('add_a_toy.html')
+
+@app.route('/add_a_toy', methods=["POST"])
+def add_a_toy():
+    print('*'*20)
+    print('\n')
+    print(request.form.get('category'))
+    print('\n')
+    print('*'*20)
+    category_name= request.form.get('catogory')
+    user = request.form.get('user')
+    toy_name = request.form.get('toy_name')
+    toy_description = request.form.get('toy_description')
+    toy_manufacture = request.form.get('toy_manufacture')
+    toy_age_range = request.form.get('toy_age_range')
+    
+    
+    category = crud.create_category(category_name = category_name, category_description = "No description available")
+    crud.create_toy(category =category,user = user, toy_name = toy_name,toy_description = toy_description, toy_manufacture = toy_manufacture, toy_age_range = toy_age_range)
+    
+    return redirect('/features')
 
   
 @app.route('/sign_up')
@@ -89,16 +102,33 @@ def Features():
 def add_a_feature():
     print('*'*20)
     print('\n')
-    print(request.form.get('first_name')) # request.form.get will grab from the form, matching to the name attribute in the html
+    print(request.form.get('weight'))
     print('\n')
     print('*'*20)
-    user_fname = request.form.get('first_name')
-    user_lname = request.form.get('last_name')
-    user_email = request.form.get('email')
-    user_password = request.form.get('psw')
-    crud.create_user(user_fname =user_fname,user_lname = user_lname,user_email= user_email,user_password=user_password)
+    weight = request.form.get('weight')
+    height = request.form.get('height')
+    depth = request.form.get('depth')
+    color = request.form.get('color')
+    theme = request.form.get('theme')
+
+    toy = request.form.get('toy')
+    store = request.form.get('store')
+    price_dollars = request.form.get('price_dollars')
+    price_effective_date = request.form.get('price_effective_date')
+    price_end_date = request.form.get('price_end_date')
+
+    store_name = request.form.get('store_name')
+    address = request.form.get('address')
+    store_website = request.form.get('store_website')
+    web_only_indicator = request.form.get('web_only_indicator')
+   
+
+    crud.create_feature(weight = weight, height = height, depth = depth, color = color, theme = theme)
+    crud.create_price(toy = toy, store = store, price_dollars = price_dollars, price_effective_date = price_effective_date, price_end_date = price_end_date)
+    crud.create_store(store_name = store_name, address = address, store_website = store_website, web_only_indicator = web_only_indicator)
+    
     # return render_template('homepage.html')
-    return redirect('/')
+    return redirect('/feature')
 
 
 
