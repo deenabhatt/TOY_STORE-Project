@@ -95,7 +95,7 @@ def create_store(store_name, address, store_website, web_only_indicator):
     store = Store(store_name=store_name,
                 address = address,
                 store_website = store_website,
-                web_only_indicator = web_only_indicator
+                # web_only_indicator = web_only_indicator
                 )
     
 

@@ -131,7 +131,13 @@ def add_a_feature():
     crud.create_feature(weight = weight, height = height, depth = depth, color = color, theme = theme)
     crud.create_price(toy = toy, store = store, price_dollars = price_dollars, price_effective_date = price_effective_date, price_end_date = price_end_date)
     crud.create_store(store_name = store_name, address = address, store_website = store_website, web_only_indicator = web_only_indicator)
-    
+    if auth_status == True:
+        session["user_email"]  = user_email
+        print(session["user_email"])
+        return redirect('/add_a_toy')
+            
+    else:
+        flash("incorrect email or password")
     # alert = Toy Informations have been saved 
     return redirect('/')
 
