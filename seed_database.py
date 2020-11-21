@@ -50,7 +50,7 @@ P = crud.create_address("1001 64th ave N","pioni","plymouth","MN",55311)
 Q = crud.create_address("5001 Jewel lane", "Polaris","Maple Group","MN", 55305)
 
 
-H = crud.create_store("Target",P,"Target.com" ,"False")
+H = crud.create_store("Target",None,"Target.com" ,"False")
 J = crud.create_store("Amazon", None ,"amazon.com","True")
 
 

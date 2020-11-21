@@ -17,6 +17,11 @@ def create_user(user_fname, user_lname, user_email, user_password):
 
     return user
 
+def get_user_by_email(user_email):
+    
+    return User.query.filter_by(user_email = user_email)
+
+
 def authenticate_user(user_email,user_password):
     A = User.query.filter_by(user_email = user_email, user_password=user_password).first()
     print("a=", A)
@@ -89,13 +94,13 @@ def create_toy_feature(toy,feature):
     return toy_feature
 
 
-def create_store(store_name, address, store_website, web_only_indicator):
+def create_store(store_name, address_id, store_website, web_only_indicator):
     """Create and return a store."""
 
     store = Store(store_name=store_name,
-                address = address,
+                address_id = address_id,
                 store_website = store_website,
-                # web_only_indicator = web_only_indicator
+                web_only_indicator = web_only_indicator
                 )
     
 
@@ -146,6 +151,11 @@ def create_user_toy(toy, user):
     db.session.commit()
 
     return user_toy
+
+def search_toy(search):
+    """Return all users."""
+    toys = Toy.query.filter_by(toy_name = search).all()
+    return toys
 
 
 def get_users():

@@ -58,19 +58,20 @@ def add_toy():
 @app.route('/add_a_toy', methods=["POST"])
 def add_a_toy():
     print('*'*20)
-    print('\n')
-    print(request.form.get('category'))
-    print('\n')
+    # print('\n')
+    # print(request.form.get('category'))
+    # print('\n')
     print('*'*20)
-    category_name= request.form.get('catogory')
-    user = User.query.filter_by(user_email = user_email).first()
+    category_name= request.form.get('Category')
+    category = crud.create_category(category_name = category_name, category_description = "No description available")
+    
+    user = crud.get_user_by_email(session["user_email"])
     toy_name = request.form.get('toy_name')
     toy_description = request.form.get('toy_description')
     toy_manufacture = request.form.get('toy_manufacture')
     toy_age_range = request.form.get('toy_age_range')
-  
-    category = crud.create_category(category_name = category_name, category_description = "No description available")
-    crud.create_toy(category = category, user = user, toy_name = toy_name,toy_description = toy_description, toy_manufacture = toy_manufacture, toy_age_range = toy_age_range)
+    
+    toy = crud.create_toy(category = category, user = user, toy_name = toy_name,toy_description = toy_description, toy_manufacture = toy_manufacture, toy_age_range = toy_age_range)
     
     return redirect('/features')
 
@@ -130,39 +131,30 @@ def add_a_feature():
 
     crud.create_feature(weight = weight, height = height, depth = depth, color = color, theme = theme)
     crud.create_price(toy = toy, store = store, price_dollars = price_dollars, price_effective_date = price_effective_date, price_end_date = price_end_date)
-    crud.create_store(store_name = store_name, address = address, store_website = store_website, web_only_indicator = web_only_indicator)
-    if auth_status == True:
-        session["user_email"]  = user_email
-        print(session["user_email"])
-        return redirect('/add_a_toy')
-            
-    else:
-        flash("incorrect email or password")
-    # alert = Toy Informations have been saved 
+    crud.create_store(store_name = store_name, address_id = 1, store_website = store_website, web_only_indicator = web_only_indicator)
+
     return redirect('/')
 
+@app.route('/search_result')
+def Search_result():
 
-
-# @app.route('/search_result')
-# def search_result():
-
-#     return render_template('search_result.html')
-
-# @app.route('/search_result', methods=["GET"])
-# def search_result():
-
-#     # print('*'*20)
-#     # print('\n')
-#     # print(request.form.get('first_name')) # request.form.get will grab from the form, matching to the name attribute in the html
-#     # print('\n')
-#     # print('*'*20)
-#     # user_fname = request.form.get('first_name')
-#     # user_lname = request.form.get('last_name')
-#     # user_email = request.form.get('email')
-#     # user_password = request.form.get('psw')
-#     # crud.create_user(user_fname =user_fname,user_lname = user_lname,user_email= user_email,user_password=user_password)
+    return render_template('search_result.html')
     
-#     return redirect('/')
+@app.route('/search')
+def search():
+    print('*'*20)
+    # print('\n')
+    print(request.args.get('search'))
+    # print('\n')
+    search = request.args.get('search')
+    toys = crud.search_toy(search)
+    print (toys)
+    print('*'*20)
+    return render_template('search_result.html',toys = toys)
+
+
+
+
 
 
 

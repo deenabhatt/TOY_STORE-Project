@@ -58,7 +58,7 @@ class Toy(db.Model):
 
 
     def __repr__(self):
-        return f'<Toy toy_id={self.toy_id} toy_name={self.toy_name} toy_description = {self.toy_description}toy_manufacture = {self.toy_manufacture} toy_age = {self.toy_age}>'
+        return f'<Toy toy_id={self.toy_id} toy_name={self.toy_name} toy_description = {self.toy_description}toy_manufacture = {self.toy_manufacture} toy_age_range = {self.toy_age_range}>'
 
     
 class Feature(db.Model):

@@ -73,13 +73,13 @@ button:hover {
 </style>
 <body>
 
-<form action="/features" style="border:1px solid #ccc">
+<form action="/add_a_toy"  method= "POST" style="border:1px solid #ccc">
   <div class="container">
     <h1>add a toy</h1>
     <p>Please fill in this form to add a add a toy.</p>
     <hr>
     <label for="Category">Choose a category:</label>
-    <select name="category" id="category">
+    <select name="Category" id="category">
         <option value="Soft Toy">Soft Toy</option>
         <option value="Board Game">Board Game</option>
         <option value="Outdoor game">Outdoor game</option>
@@ -97,7 +97,7 @@ button:hover {
     <input type="text" placeholder="Toy Manufacture" name="toy_manufacture" required>
 
     <label for="toy_age_range"><b>Toy Age range</b></label>
-    <input type="text" placeholder="Toy age range" name="toy_age_range" required>
+    <input type="text" placeholder="oy age range" name="toy_age_range" required>
 
         <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me

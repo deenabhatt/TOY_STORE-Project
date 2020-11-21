@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <!-- <!-- <div class="topnav">
+    <a class="active" href="#search_result"></a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <input type="text" placeholder="Search..">
+  </div>
+  
+  -->
+</div>
+<img src="/static/Squishmalklow.jpg">
+<img src="/static/Gient bears.jpg">
+<img src="/static/monopoly.jpg"
+<img src="/static/Disney toy world.gif"
+
+<div>
+    <p class="center"><b>Welcome to Toy Shop!!</b></p>    
+    <form class="search" action='/search_result'  method= "POST"  style="margin:auto; max-width:300px">
+      <input type="text" placeholder="Search.." name="search_result">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+{% set count = 0 %}
+{% for toy in toys %}
+  {% set count = count + 1 %}}
+  <p><b>Toy :{{count}} </b></p>
+  <p><b>Toy Name: </b> {{toy.toy_name}}</p>
+  <p><b>Toy Description: </b> {{toy.toy_description}}</p>
+  <p><b>Toy Category: </b> </p>
+  <p><b>Price:</b> </p>
+  <p><b>Shop Name:</b> </p>
+{% endfor %}
+<!-- 
+<table style="width:100%"> -->
+  <!-- <tr>
+    <th>Toy Name</th>
+    <th>Toy Price</th> 
+    <th>Address</th>
+    <th>Store</th>
+  </tr>
+  
+  <tr> -->
+    <!-- <td>My little pony flattershy</td>
+    <td>15<td>
+    <td>145 maplewood drive</td><br>
+    <td>walmart</td>
+    </tr>
+    
+  <tr>
+    <td>My little pony Twilelight Sparkle</td>
+    <td>20<td>
+    <td>185 maplewood drive</td><br>
+    <td>target</td>
+  </tr>
+  
+  <tr>
+    <td>Giant Bear Pink</td>
+    <td>50<td>
+    <td>854 polaris lane</td><br>
+    <td>costco</td>
+  </tr>
+   -->
+  <!-- <tr>
+    <td>Rainbow Teddy Bear</td>
+    <td>30<td>
+    <td>800Jwel ln</td><br>
+    <td>Bu</td>
+  </tr> -->
+<!-- </table> --> -->
+
+</body>
+</html>
