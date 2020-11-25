@@ -19,7 +19,7 @@ def create_user(user_fname, user_lname, user_email, user_password):
 
 def get_user_by_email(user_email):
     
-    return User.query.filter_by(user_email = user_email)
+    return User.query.filter_by(user_email = user_email).first()
 
 
 def authenticate_user(user_email,user_password):
@@ -49,18 +49,23 @@ def create_category(category_name, category_description):
 
 
    
-def create_toy(category,user, toy_name,toy_description, toy_manufacture, toy_age_range):
+def create_toy(category,user, toy_name,toy_description, toy_manufacture, toy_age_range, toy_image):
     """Create and return a new toy."""
-
-    toy = Toy(category= category,
-            user= user,
+    print(user)
+    print(category)
+    toy = Toy(category_id= category.category_id,
+            user_id= user.user_id,
             toy_name= toy_name,
             toy_description= toy_description,
             toy_manufacture=toy_manufacture,
-            toy_age_range= toy_age_range
+            toy_age_range= toy_age_range,
+            toy_image = toy_image
             )
+    
 
     db.session.add(toy)
+    print(toy)
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     db.session.commit()
 
     return toy
@@ -83,9 +88,9 @@ def create_feature(weight,height,depth,color,theme):
 
 def create_toy_feature(toy,feature):
     """Create and return a toy_feature."""
-
-    toy_feature = Toy_Feature(toy=toy,
-                            feature=feature,
+    print (toy)
+    toy_feature = Toy_Feature(toy_id=toy.toy_id,
+                            feature_id=feature.feature_id,
                             )
 
     db.session.add(toy_feature) 

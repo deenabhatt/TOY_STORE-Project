@@ -75,7 +75,9 @@ def add_a_toy():
     
     return redirect('/features')
 
-  
+
+
+
 @app.route('/sign_up')
 def show_sign_up_page():
 
@@ -95,8 +97,6 @@ def sign_up_new_user():
     crud.create_user(user_fname =user_fname,user_lname = user_lname,user_email= user_email,user_password=user_password)
     
     return redirect('/')
-
-
 
 
 @app.route('/features')
@@ -129,11 +129,14 @@ def add_a_feature():
     web_only_indicator = request.form.get('web_only_indicator')
    
 
-    crud.create_feature(weight = weight, height = height, depth = depth, color = color, theme = theme)
+    feature = crud.create_feature(weight = weight, height = height, depth = depth, color = color, theme = theme)
     crud.create_price(toy = toy, store = store, price_dollars = price_dollars, price_effective_date = price_effective_date, price_end_date = price_end_date)
     crud.create_store(store_name = store_name, address_id = 1, store_website = store_website, web_only_indicator = web_only_indicator)
-
+    crud.create_toy_feature(toy = toy, feature = feature)
     return redirect('/')
+
+
+
 
 @app.route('/search_result')
 def Search_result():

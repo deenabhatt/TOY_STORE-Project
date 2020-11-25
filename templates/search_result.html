@@ -2,37 +2,34 @@
 <html>
 
 <body>
-  <!-- <!-- <div class="topnav">
-    <a class="active" href="#search_result"></a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <input type="text" placeholder="Search..">
-  </div>
-  
-  -->
-</div>
-<img src="/static/Squishmalklow.jpg">
-<img src="/static/Gient bears.jpg">
-<img src="/static/monopoly.jpg"
-<img src="/static/Disney toy world.gif"
+    
 
-<div>
+
+<!-- {% set count = 0 %} -->
+{% for toy in toys %}
+  <!-- {% set count = count + 1 %} -->
+  <p><b>Toy :{{loop.index}} </b></p>
+  <p><b>Toy Name: </b> {{toy.toy_name}}</p>
+  <p><b>Toy Description: </b> {{toy.toy_description}}</p>
+  <p><b>Toy Category: </b> </p>
+  <p><b>Price:</b></p>
+  <p><b>Shop Name:</b> </p>
+  <img src="static/{{toy.toy_image}}" width="200" height="250" />
+{% endfor %}
+
+
+</body>
+</html>
+
+
+
+<!-- <div>
     <p class="center"><b>Welcome to Toy Shop!!</b></p>    
     <form class="search" action='/search_result'  method= "POST"  style="margin:auto; max-width:300px">
       <input type="text" placeholder="Search.." name="search_result">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-</div>
-{% set count = 0 %}
-{% for toy in toys %}
-  {% set count = count + 1 %}}
-  <p><b>Toy :{{count}} </b></p>
-  <p><b>Toy Name: </b> {{toy.toy_name}}</p>
-  <p><b>Toy Description: </b> {{toy.toy_description}}</p>
-  <p><b>Toy Category: </b> </p>
-  <p><b>Price:</b> </p>
-  <p><b>Shop Name:</b> </p>
-{% endfor %}
+</div> -->
 <!-- 
 <table style="width:100%"> -->
   <!-- <tr>
@@ -69,7 +66,16 @@
     <td>800Jwel ln</td><br>
     <td>Bu</td>
   </tr> -->
-<!-- </table> --> -->
+<!-- </table> --> 
 
-</body>
-</html>
+<!-- <img src="static/rainbowbear.jpg" width= "200" height = "250">>
+<img src="/static/Gient bears.jpg" width="200" height="250">>
+<img src="/static/Squishmalklow.jpg" width="200" height="250">>
+<img src="/static/Llama Squishmallow-.jpg" width="200" height="250">>
+<img src="/static/barbie 1.jpg" width="200" height="250">>
+<img src="/static/Barbie.jpg" width="200" height="250">>
+<img src="/static/Disney toy world.gif" width="200" height="250">>
+<img src="/static/water table outdoor.JPG" width="200" height="250">>
+<img src="/static/scooter outdoor.JPG" width="200" height="250">>
+<img src="/static/pokemon.jpg" width="200" height="250">>
+<img src="/static/monopoly.jpg" width="200" height="250">> -->
