@@ -2,24 +2,44 @@
 <html>
 
 <body>
-    
+  <img src="static/rainbowbear.jpg" width= "200" height = "250">>
+  <img src="/static/Gient bears.jpg" width="200" height="250">>
+  <img src="/static/Squishmallow.jpg" width="200" height="250">>
+  <img src="/static/Llama Squishmallow-.jpg" width="200" height="250">>
+  <img src="/static/barbie 1.jpg" width="200" height="250">>
+  <img src="/static/Barbie.jpg" width="200" height="250">>
+  <img src="/static/Disney toy world.gif" width="200" height="250">>
+  <img src="/static/water table outdoor.JPG" width="200" height="250">>
+  <img src="/static/scooter outdoor.JPG" width="200" height="250">>
+  <img src="/static/pokemon.jpg" width="200" height="250">>
+  <img src="/static/monopoly.jpg" width="200" height="250">>
+  
 
 
 <!-- {% set count = 0 %} -->
 {% for toy in toys %}
   <!-- {% set count = count + 1 %} -->
   <p><b>Toy :{{loop.index}} </b></p>
-  <p><b>Toy Name: </b> {{toy.toy_name}}</p>
+  <p><b>Toy name:</b>
+    <a href="/toy_details/{{toy.toy_id}}" target="_blank"> {{toy.toy_name}}</a> 
+  </p>
   <p><b>Toy Description: </b> {{toy.toy_description}}</p>
-  <p><b>Toy Category: </b> </p>
+  <!-- <p><b>Toy Category: </b> </p>
   <p><b>Price:</b></p>
-  <p><b>Shop Name:</b> </p>
+  <p><b>Shop Name:</b> </p> -->
   <img src="static/{{toy.toy_image}}" width="200" height="250" />
+  
+  
 {% endfor %}
 
-
+  
 </body>
 </html>
+
+
+
+
+
 
 
 
@@ -68,14 +88,3 @@
   </tr> -->
 <!-- </table> --> 
 
-<!-- <img src="static/rainbowbear.jpg" width= "200" height = "250">>
-<img src="/static/Gient bears.jpg" width="200" height="250">>
-<img src="/static/Squishmalklow.jpg" width="200" height="250">>
-<img src="/static/Llama Squishmallow-.jpg" width="200" height="250">>
-<img src="/static/barbie 1.jpg" width="200" height="250">>
-<img src="/static/Barbie.jpg" width="200" height="250">>
-<img src="/static/Disney toy world.gif" width="200" height="250">>
-<img src="/static/water table outdoor.JPG" width="200" height="250">>
-<img src="/static/scooter outdoor.JPG" width="200" height="250">>
-<img src="/static/pokemon.jpg" width="200" height="250">>
-<img src="/static/monopoly.jpg" width="200" height="250">> -->

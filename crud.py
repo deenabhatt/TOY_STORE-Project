@@ -159,9 +159,17 @@ def create_user_toy(toy, user):
 
 def search_toy(search):
     """Return all users."""
-    toys = Toy.query.filter_by(toy_name = search).all()
+    toys = Toy.query.filter(Toy.toy_name.ilike("%" + search + "%")).all()
+    
+
     return toys
 
+def toy_details(toy_id):
+    """Return all users."""
+    return Toy.query.options(db.joinedload('prices')).filter(Toy.toy_id==toy_id).first()
+
+
+    
 
 def get_users():
     """Return all users."""

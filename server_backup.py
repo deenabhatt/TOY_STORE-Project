@@ -139,8 +139,7 @@ def add_a_feature():
 @app.route('/search_result')
 def Search_result():
 
-   # return render_template('search_result.html')
-   return redirect('/toy_details/<toy_id>')
+    return render_template('search_result.html')
     
 @app.route('/search')
 def search():

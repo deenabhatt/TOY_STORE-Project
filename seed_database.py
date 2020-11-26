@@ -43,37 +43,60 @@ V = crud.create_user("Rohan", "Bhatt", "Rohan@test.com","test")
 
 x = crud.create_toy( C, I, "rainbowbear", "kids toy", "build a bear", 5, "rainbowbear.jpg")
 y = crud.create_toy( C, u, "Gient bears", "kids toy", "build a bear", 5,"Gient bears.jpg")
-AA = crud.create_toy(C, L,"rainbowbear","kids toy", "build a bear",3,"Llama Squishmallow-.jpg")
-aa = crud.create_toy(C, N,"Gient bears","kids toy","build a bear",3,"barbie 1.jpg")
-bb = crud.create_toy( A, V, "water table outdoor", "kids toy", "fisher price", 2, "Barbie.jpg")
-cc = crud.create_toy( A, O, "scooter outdoor", "kids toy", "Razon", 3, "Disney toy world.gif")
+AA = crud.create_toy(C, L,"rainbowbear","kids toy", "build a bear",3,"rainbowbear.jpg")
+aa = crud.create_toy(C, N,"Gient bears","kids toy","build a bear",3,"Gient bears.jpg")
+bb = crud.create_toy( A, V, "water table outdoor", "kids toy", "fisher price", 2, "water table outdoor.JPG")
+cc = crud.create_toy( A, O, "scooter outdoor", "kids toy", "Razon", 3, "scooter outdoor.JPG")
 dd = crud.create_toy( d, L, "pokemon", "kids toy", "Pikachu", 8, "pokemon.jpg")
 ee = crud.create_toy(e, u, "monopoly", "played by two to eight players","monopoly company",8, "monopoly.jpg")
-ff = crud.create_toy(B, N, "Barbie", "barbie doll","dolls comapany",8,"Barbie.jpg")
-gg = crud.create_toy(B,L,"barbie 1","Indian barbie","Indian dolls comapny",5,"barbie 1.jpg")
-
-
+ff = crud.create_toy(B, N, "Barbie", "Indian barbie","Indian dolls comapny",8,"Barbie.jpg")
+ff = crud.create_toy(B, N, "Barbie", "Indian barbie","Indian dolls comapny",8,"Barbie.jpg")
+gg = crud.create_toy(B,L,"barbie 1","barbie doll","dolls comapany",5,"barbie 1.jpg")
+hh = crud.create_toy(C, L,"Squishmallow", "adorable plush animals to love & cuddle","Squish Doos Pearson",1,"Squishmallow.jpg")
+ii = crud.create_toy(C,O,"Llama Squishmallow","love to cuddle","squish doos Pearson",1,"Llama Squishmallow-.jpg")
 
 
 
 
 z = crud.create_feature(2.5,4.0,1.8,"blue","Disney")
 k = crud.create_feature(1.2,5.6,3.4,"yellow","build_a_bear")
+F1 = crud.create_feature(5,10,2,"Rainbow","bear")
+F2 = crud.create_feature(10,7,5,"red","barbie")
+F3 = crud.create_feature(12,12,12,"pink","water table")
+F4 = crud.create_feature(10,7,5,"purple","pokemon")
+
+
+
 
 
 P = crud.create_address("1001 64th ave N","pioni","plymouth","MN",55311)
 Q = crud.create_address("5001 Jewel lane", "Polaris","Maple Group","MN", 55305)
 
 
+
 H = crud.create_store("Target",None,"Target.com" ,"False")
 J = crud.create_store("Amazon", None ,"amazon.com","True")
+S1 = crud.create_store("Amazon", None ,"amazon.com","True")
+S2 = crud.create_store("walmart", None ,"walmart.com","False")
+S3 = crud.create_store("wayfair", None ,"wayfair.com","True")
+S4 = crud.create_store("Target", None ,"Target.com","False")
+S5 = crud.create_store("wayfair", None ,"wayfair.com","True")
+S6 = crud.create_store("kohls", None ,"kohls.com","False")
+
+
 
 
 M = crud.create_toy_feature(y,z)
 N = crud.create_toy_feature(y,k)
 
-D = crud.create_price(x, H, 5, 1112020, 11102020)
-E = crud.create_price(x, J, 3, 1122020, 12122020)
+D = crud.create_price(x, H, 15, 1112020, 11102020)
+E = crud.create_price(x, J, 20, 1122020, 12122020)
+p1 = crud.create_price(cc, H, 25, 11162020, 11232020)
+p2 = crud.create_price(ee,S2,30,11162020,11232020)
+p3 = crud.create_price(gg,S3,30,12012020,12072020)
+p4 = crud.create_price(hh,S4,25,12072020,12172020)
+p5 = crud.create_price(ii,S5,20,12072020,12172020)
+p6 = crud.create_price(bb,S1,35,11252020,12052020)
 
 t = crud.authenticate_user('Jiya@test.com','test')
 

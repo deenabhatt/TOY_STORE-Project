@@ -52,7 +52,7 @@ class Toy(db.Model):
     toy_description = db.Column(db.String)
     toy_manufacture = db.Column(db.String)
     toy_age_range = db.Column(db.Integer)
-    toy_image = db.column(db.String)
+    toy_image = db.Column(db.String)
 
     category = db.relationship('Category', backref='toys')
     user = db.relationship('User', backref='toys')
