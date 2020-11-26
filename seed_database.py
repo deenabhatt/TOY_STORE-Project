@@ -70,9 +70,9 @@ F4 = crud.create_feature(10,7,5,"purple","pokemon")
 
 
 P = crud.create_address("1001 64th ave N","pioni","plymouth","MN",55311)
-Q = crud.create_address("5001 Jewel lane", "Polaris","Maple Group","MN", 55305)
-
-
+Q = crud.create_address("5001 Jewel lane", "Polaris","Maple Group","MN", 55311)
+A1 = crud.create_address("101 42 nd ave S","ranch view ","minnetonka,"MN",55305) 
+A2 = crud.create_address("51 rosemarywoods","Maple Grove","MN",55311)
 
 H = crud.create_store("Target",None,"Target.com" ,"False")
 J = crud.create_store("Amazon", None ,"amazon.com","True")
