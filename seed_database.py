@@ -71,8 +71,8 @@ F4 = crud.create_feature(10,7,5,"purple","pokemon")
 
 P = crud.create_address("1001 64th ave N","pioni","plymouth","MN",55311)
 Q = crud.create_address("5001 Jewel lane", "Polaris","Maple Group","MN", 55311)
-A1 = crud.create_address("101 42 nd ave S","ranch view ","minnetonka,"MN",55305) 
-A2 = crud.create_address("51 rosemarywoods","Maple Grove","MN",55311)
+A1 = crud.create_address("101 42 nd ave S","ranch view ","minnetonka","MN",55305) 
+A2 = crud.create_address("51 rosemarywoods","plan ave","Maple Grove","MN",55311)
 
 H = crud.create_store("Target",None,"Target.com" ,"False")
 J = crud.create_store("Amazon", None ,"amazon.com","True")
@@ -97,6 +97,7 @@ p3 = crud.create_price(gg,S3,30,12012020,12072020)
 p4 = crud.create_price(hh,S4,25,12072020,12172020)
 p5 = crud.create_price(ii,S5,20,12072020,12172020)
 p6 = crud.create_price(bb,S1,35,11252020,12052020)
+p7 = crud.create_price(aa,S6,50,12022020,12122020)
 
 t = crud.authenticate_user('Jiya@test.com','test')
 

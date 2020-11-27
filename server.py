@@ -12,12 +12,6 @@ app.jinja_env.undefined = StrictUndefined
 
 
 
-# """Server for TOY SHOP app."""
-
-# from flask import Flask, render_template
-
-# app = Flask(__name__)
-
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined

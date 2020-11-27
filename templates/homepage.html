@@ -44,7 +44,7 @@ body {
   float: right;
 }
 
-.topnav input[type=text] {
+.topnav input[type=text],[type=password] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
@@ -80,7 +80,7 @@ body {
     margin: 0;
     padding: 14px;
   }
-  .topnav input[type=text] {
+  .topnav input[type=text],[type=password] {
     border: 1px solid #ccc;  
   }
 }
@@ -125,7 +125,7 @@ form.search::after {
 </head>
 <body>
 
-  <button onclick="myFunction()">submit</button>
+  <!-- <button onclick="myFunction()">submit</button> -->
 
   
  <div class="topnav">
@@ -136,8 +136,8 @@ form.search::after {
     <div class="login-container">
     <form action='/' method="POST">
       <input type="text" placeholder="email" name="email">
-      <input type="text" placeholder="Password" name="password">
-      <input type="submit">Seller Login</input>
+      <input type="password" placeholder="Password" name="password">
+      <button type="submit"> Seller Login </button> 
       </form>
   </div>
 </div>
@@ -157,40 +157,3 @@ form.search::after {
 
 
 
-
-
-
-
-
-
-
-
-<!-- {% extends 'base.html' %}
-{% block title %} TOY SHOP Home{% endblock %}
-
-{% block body %}
-  <h1>Welcome to Toy Shop!</h1>
-
-  <h3>Hello! Please Sign in <br>
-    or<br>
-     Sign up for new account. </h3>
-
-     <style>
-      body {background-color: rgb(181, 176, 223);}
-      </style>
-  
-
-  
-  <button href="/log_in" type="button" Log in="alert('Sign in')">Log in!</button>
-  <button type="button" Sign up="alert('Sign up')">sign up!</button>
-  
-  
-  
-  <ul>
-    <li><a href="/TOY">View all toy</a></li>
-    <li><a href="/users">View all users</a></li>
-  </ul>
-
-      
-  </form>
-{% endblock %} -->
