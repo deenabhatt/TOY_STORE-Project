@@ -64,8 +64,8 @@ def add_a_toy():
     toy_description = request.form.get('toy_description')
     toy_manufacture = request.form.get('toy_manufacture')
     toy_age_range = request.form.get('toy_age_range')
-    
-    toy = crud.create_toy(category = category, user = user, toy_name = toy_name,toy_description = toy_description, toy_manufacture = toy_manufacture, toy_age_range = toy_age_range)
+    global toy
+    toy = crud.create_toy(category = category, user = user, toy_name = toy_name,toy_description = toy_description, toy_manufacture = toy_manufacture, toy_age_range = toy_age_range, toy_image = "unnamed.gif")
     
     return redirect('/features')
 
@@ -111,7 +111,7 @@ def add_a_feature():
     color = request.form.get('color')
     theme = request.form.get('theme')
 
-    toy = request.form.get('toy')
+    #toy = request.form.get('toy')
     store = request.form.get('store')
     price_dollars = request.form.get('price_dollars')
     price_effective_date = request.form.get('price_effective_date')
