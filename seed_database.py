@@ -54,7 +54,7 @@ ff = crud.create_toy(B, N, "Barbie", "Indian barbie","Indian dolls comapny",8,"B
 gg = crud.create_toy(B,L,"barbie 1","barbie doll","dolls comapany",5,"barbie 1.jpg")
 hh = crud.create_toy(C, L,"Squishmallow", "adorable plush animals to love & cuddle","Squish Doos Pearson",1,"Squishmallow.jpg")
 ii = crud.create_toy(C,O,"Llama Squishmallow","love to cuddle","squish doos Pearson",1,"Llama Squishmallow-.jpg")
-
+jj = crud.create_toy(C,V,"Diney toys","love to cuddle disney chractors","Disney company",2,"Disney toys.gif")
 
 
 
@@ -98,6 +98,9 @@ p4 = crud.create_price(hh,S4,25,12072020,12172020)
 p5 = crud.create_price(ii,S5,20,12072020,12172020)
 p6 = crud.create_price(bb,S1,35,11252020,12052020)
 p7 = crud.create_price(aa,S6,50,12022020,12122020)
+p8 = crud.create_price(ff,S4,60,12022020,12122020)
+p9 = crud.create_price(jj,S4,35,12022020,12122020)
+
 
 t = crud.authenticate_user('Jiya@test.com','test')
 
