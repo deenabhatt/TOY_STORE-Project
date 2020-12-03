@@ -47,6 +47,11 @@ def authenticate_user():
 def About():
     return render_template('about.html')   
 
+@app.route('/contact')
+def Contact():
+    return render_template('contact.html')   
+
+
 @app.route('/add_a_toy')
 def add_toy():
     
