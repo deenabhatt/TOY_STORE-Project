@@ -42,7 +42,10 @@ def authenticate_user():
     else:
         flash("incorrect email or password")
         return redirect('/')
-    
+
+@app.route('/about')
+def About():
+    return render_template('about.html')   
 
 @app.route('/add_a_toy')
 def add_toy():
@@ -152,6 +155,7 @@ def search():
 @app.route('/toy_details/<toy_id>')
 def toy_details(toy_id):
     toy = crud.toy_details(toy_id)
+
     print(toy)
     return render_template('toy_details.html',toy = toy)
 
