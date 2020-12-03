@@ -42,19 +42,19 @@ V = crud.create_user("Rohan", "Bhatt", "Rohan@test.com","test")
 
 
 x = crud.create_toy( C, I, "rainbowbear", "kids toy", "build a bear", 5, "rainbowbear.jpg")
-y = crud.create_toy( C, u, "Gient bears", "kids toy", "build a bear", 5,"Gient bears.jpg")
+y = crud.create_toy( C, u, "Gient bears", "kids toy", "build a bear", 5,"Gient_bears.jpg")
 AA = crud.create_toy(C, L,"rainbowbear","kids toy", "build a bear",3,"rainbowbear.jpg")
-aa = crud.create_toy(C, N,"Gient bears","kids toy","build a bear",3,"Gient bears.jpg")
-bb = crud.create_toy( A, V, "water table outdoor", "kids toy", "fisher price", 2, "water table outdoor.JPG")
-cc = crud.create_toy( A, O, "scooter outdoor", "kids toy", "Razon", 3, "scooter outdoor.JPG")
+aa = crud.create_toy(C, N,"Gient bears","kids toy","build a bear",3,"Gient_bears.jpg")
+bb = crud.create_toy( A, V, "water table outdoor", "kids toy", "fisher price", 2, "water_table_outdoor.JPG")
+cc = crud.create_toy( A, O, "scooter outdoor", "kids toy", "Razon", 3, "scooter_outdoor.JPG")
 dd = crud.create_toy( d, L, "pokemon", "kids toy", "Pikachu", 8, "pokemon.jpg")
 ee = crud.create_toy(e, u, "monopoly", "played by two to eight players","monopoly company",8, "monopoly.jpg")
 ff = crud.create_toy(B, N, "Barbie", "Indian barbie","Indian dolls comapny",8,"Barbie.jpg")
 ff = crud.create_toy(B, N, "Barbie", "Indian barbie","Indian dolls comapny",8,"Barbie.jpg")
-gg = crud.create_toy(B,L,"barbie 1","barbie doll","dolls comapany",5,"barbie 1.jpg")
+gg = crud.create_toy(B,L,"barbie 1","barbie doll","dolls comapany",5,"barbie_1.jpg")
 hh = crud.create_toy(C, L,"Squishmallow", "adorable plush animals to love & cuddle","Squish Doos Pearson",1,"Squishmallow.jpg")
-ii = crud.create_toy(C,O,"Llama Squishmallow","love to cuddle","squish doos Pearson",1,"Llama Squishmallow-.jpg")
-jj = crud.create_toy(C,V,"Diney toys","love to cuddle disney chractors","Disney company",2,"Disney toys.gif")
+ii = crud.create_toy(C,O,"Llama Squishmallow","love to cuddle","squish doos Pearson",1,"Llama_Squishmallow-.jpg")
+jj = crud.create_toy(C,V,"Diney toys","love to cuddle disney chractors","Disney company",2,"Disney_toys.gif")
 
 
 
