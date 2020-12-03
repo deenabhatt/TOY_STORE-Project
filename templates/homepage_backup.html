@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  <!-- <button onclick="myFunction()">submit</button> -->
+
+  
+ <div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="/sign_up" class="login-container">Seller Sign up</a>
+    <div class="login-container">
+    <form action='/' method="POST">
+      <input type="text" placeholder="email" name="email">
+      <input type="password" placeholder="Password" name="password">
+      <button type="submit"> Seller Login </button> 
+      </form>
+  </div>
+</div>
+
+<div>
+    <p class="center"><b>Welcome to Deena's Toy Shop!!</b></p>    
+    <form class="search" action="/search" style="margin:auto; max-width:300px">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button><br>
+      <p></p><br>
+      <img src="/static/DISNEY TOY.png">
+    </form>
+</div>
+
+{% endblock %}
+
+
+
+
